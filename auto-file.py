@@ -1,33 +1,1 @@
-#Auto File Rename
-#Eric 'Zander' Nelson
-
-import os
-import re
-
-folders = os.listdir("../../../../../../Python27/files-to-test")
-
-def seasonRegX(folder):
-	pattern = '([A-Za-z]+|[0-9])'
-	q = re.split(pattern, folder)
-	filename = ''
-
-	i = 1
-
-	filename += q[1];
-
-	while q[i].lower() != 'season':
-		i += 1;
-
-	i += 2
-	filename += ' - s'
-
-	if (int(q[i]) < 10):
-		filename += '0'
-		filename += q[i]
-	else:
-		filename += q[i]
-
-	return filename
-
-for filename in folders:
-	print seasonRegX(filename)
+#Auto File Rename#Eric 'Zander' Nelsonimport osimport refolders = os.listdir("../../../../../../Python27/files-to-test")def seasonRegX(folder):	pattern = '([A-Za-z]+|[0-9])'	q = re.split(pattern, folder)	filename = ''	i = 1	filename += q[1];	while q[i].lower() != 'season':		i += 1;	i += 2	filename += ' - s'	if (int(q[i]) < 10):		filename += '0'		filename += q[i]	else:		filename += q[i]	return filenamedef seasonRename(filename, folder):	ep = 1	filename += 'e'	root = "../../../../../../Python27/files-to-test/" + folder + "/"	folders = os.listdir(root)	for episode in folders:		temp = filename		if ep < 10:			temp += '0'			temp += str(ep)		else:			temp += str(ep)		ep += 1		print os.path.join(root, episode)		print os.rename(os.path.join(episode, root), temp)for folder in folders:	seasonRename(seasonRegX(folder), folder)
