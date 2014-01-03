@@ -10,7 +10,7 @@ for folder in folders:
 		name = ''
 		count = 0
 
-		q = re.split('[_&-]', folder.lower())
+		q = re.split('[_&-/$/#]', folder.lower())
 
 		for z in q:
 			if z != '':
