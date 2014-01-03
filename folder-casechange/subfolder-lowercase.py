@@ -1,11 +1,9 @@
-#Files Renamed to LowerCase
+#Folder and all SubFolders Renamed to LowerCase
 #Eric 'Zander' Nelson
 
 import os, re, time
 
-files = os.listdir('./')
-
-for myFile in files:
+def rename(myFile, path):
 	name = ''
 	count = 0
 
@@ -21,6 +19,10 @@ for myFile in files:
 
 	#print q
 
-	os.rename(myFile, name)
+	os.rename(os.path.join(path, myFile), os.path.join(path, name))
+
+for path, folders, files in os.walk('.'):
+	for folder in folders:
+		rename(folder, path)
 
 #time.sleep(5)
