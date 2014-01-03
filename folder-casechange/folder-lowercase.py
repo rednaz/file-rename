@@ -1,17 +1,20 @@
-#Folder Renamed to LowerCase
-#Eric 'Zander' Nelson
+# Folder Renamed to LowerCase
+# Eric 'Zander' Nelson
 
+# imports for os, regex, and time
 import os, re, time
 
-folders = os.listdir('./')
-
-for folder in folders:
-	if os.path.isdir(folder):
+# for each folder in current directory
+for folder in os.listdir('.'):
+	if os.path.isdir(folder):	#only if a folder
 		name = ''
 		count = 0
 
+		# regex, converts to lower and removes characters
+		# saves what is kept into an array
 		q = re.split('[-_&$#]', folder.lower())
 
+		# for each part in the array, add to new name
 		for z in q:
 			if z != '':
 				name += z
@@ -20,8 +23,7 @@ for folder in folders:
 
 			count += 1
 
-		#print q
-
+		# renames file
 		os.rename(folder, name)
 
 #time.sleep(5)
