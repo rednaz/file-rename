@@ -48,7 +48,7 @@ def walk(justFolder, sub):
 # determines if the user wants to rename files and folders or just folders
 looping = True
 while looping:
-	result = raw_input("Rename only folders? (Yes/No")
+	result = raw_input("Rename only folders? (Yes/No) ")
 	result = result.lower()
 	if result == 'y' or result == 'yes':
 		foldersOnly = True
@@ -62,7 +62,7 @@ while looping:
 # determines if the user wants to include subdirectories
 looping = True
 while looping:
-	result = raw_input("Include Subdirectories?")
+	result = raw_input("Include Subdirectories? (Yes/No) ")
 	result = result.lower()
 	if result == 'y' or result == 'yes':
 		subdirectories = True
