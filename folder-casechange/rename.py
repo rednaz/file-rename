@@ -9,6 +9,7 @@ def rename(myFile):
 
 	# regex, converts to lower and removes characters
 	# saves what is kept into an array
+	# can make additional changes here as necessary
 	q = re.split('[-_&$# ]', myFile.lower())
 
 	# for each part in the array, add to new name
@@ -43,12 +44,23 @@ def walk(justFolder, sub):
 				name = rename(folder)
 				os.rename(folder, name)
 
+# introduction message
+print "Welcome to Zander's 'Naming Convention Converter' setup."
+print "This program will automatically convert Files and Folders (as desired)"
+print "into the proper naming convention for your CMS or other system."
+print "The base function of this program converts file names to lower case and"
+print "changes unwanted symbols (ie &, _) to dashes (-)."
+print "This program can be modified to make other symbol changes as required."
+print ""
+print "======================================================================="
+print "======================================================================="
+print ""
 
 # interface
 # determines if the user wants to rename files and folders or just folders
 looping = True
 while looping:
-	result = raw_input("Rename only folders? (Yes/No) ")
+	result = raw_input("Would you like to only rename folders? (Yes/No) ")
 	result = result.lower()
 	if result == 'y' or result == 'yes':
 		foldersOnly = True
@@ -62,7 +74,7 @@ while looping:
 # determines if the user wants to include subdirectories
 looping = True
 while looping:
-	result = raw_input("Include Subdirectories? (Yes/No) ")
+	result = raw_input("Would you like to include Subdirectories? (Yes/No) ")
 	result = result.lower()
 	if result == 'y' or result == 'yes':
 		subdirectories = True

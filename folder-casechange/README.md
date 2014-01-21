@@ -1,4 +1,4 @@
-Eric Nelson
+Eric "Zander" Nelson
 
 rename.py
 ===========
