@@ -26,6 +26,7 @@ def rename(myFile):
 
 # walk function
 def walk(justFolder, sub):
+	# for each file or folder in current dirrectory and all sub-directories
 	if sub:
 		for path, folders, files in os.walk('.'):
 			for folder in folders:
@@ -37,8 +38,8 @@ def walk(justFolder, sub):
 					name = rename(aFile)
 					os.rename(os.path.join(path, aFile), os.path.join(path, name))
 
+	# for each file or folder in current directory
 	else:
-		# for each file or folder in current directory
 		for folder in os.listdir('.'):
 			if os.path.isdir(folder) or not justFolder:	# if is a folder or checking all files
 				name = rename(folder)
